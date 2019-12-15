@@ -1,0 +1,30 @@
+Transaction Management:
+A -> Atomicity = All or None
+C -> Consistency = Transaction should leave system in consitent state. Sum of amounts of both accounts should be same before and after transaction.
+I -> Isolation = Result of the transaction should be same even if it runs in sequence or in parallel
+D -> Durability = If all steps performed successfully then it should persist the state even if there is data crash occurrs.
+
+Dirty Read:
+In a transaction, if thrad A has modified a value and thread B reads a value though thread A has not completed.
+
+Non-Repeatable Reads:
+If in a transaction same query hit at different places and gives different results called as not-repeatable reads.
+
+Phantom Reads:
+In the same transaction if I hit the same query at different point gives different number of rows is called as Phantom Reads.
+
+To prevent Dirty Read, Non-Repeatable Reads and Phantom Read we can use Isolation Level.
+
+There are 4 isolation levels:
+1. Read Uncommitted
+2. Read Committed
+3. Repeatable Reads
+4. Serialization
+
+
+								Dirty Read				Non-Repeatable reads		Phantom Read
+Read Uncommitted				Not Solved				Not Solved					Not Solved
+Read Committed					Solved					Not Solved					Not Solved
+Repeatable Reads(Read Lock)		Solved					Solved						Not Solved	
+Serialization					 Solved					Solved						Solved	
+(Read + Write + Range Lock)
